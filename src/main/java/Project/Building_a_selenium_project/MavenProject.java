@@ -1,5 +1,8 @@
 package Project.Building_a_selenium_project;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
@@ -16,7 +19,7 @@ import com.google.common.io.Files;
 
 public class MavenProject {
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws IOException, InterruptedException, AWTException {
 		// ** setting the path of the gecko driver executable
 		System.setProperty("webdriver.gecko.driver",
 				"C:\\Users\\asus\\eclipse\\Selenium_project\\Driver\\geckodriver.exe");
@@ -24,7 +27,7 @@ public class MavenProject {
 		WebDriver driver = new FirefoxDriver();
 		// setting the path of the chrome driver executable
 		// System.setProperty("webdriver.chrome.driver",
-              // "C:\\Users\\asus\\eclipse-Rutuja_java\\com\\target\\Driver\\chromedriver_1.exe");
+              // "C:\\Users\\asus\\eclipse\\Selenium_project\\Driver\\chromedriver_1.exe");
 		// ** Launch the Chrome browser 
 		// WebDriver driver = new ChromeDriver();
 		
@@ -61,10 +64,28 @@ public class MavenProject {
 		File destFile = new File("C:\\Users\\asus\\eclipse\\Selenium_project\\screenshot\\"+date2+"__page.png");
 		Files.copy(srcFile,destFile);
 		
+		//************ Robot Class ************
+		
+		Robot r = new Robot();
+		//Move mouse in X & Y Direction
+		r.mouseMove(200, 500);
+		
+		//Press ALT key from keyboard
+		r.keyPress(KeyEvent.VK_ALT);
+		//Press F key from keyboard
+		r.keyPress(KeyEvent.VK_F);
+		//Release ALT key from keyboard
+		r.keyRelease(KeyEvent.VK_ALT);
+		Thread.sleep(3000);
+		r.keyPress(KeyEvent.VK_W);
+		r.keyRelease(KeyEvent.VK_W);
+		
 		// Halt the program execution for 2 seconds
-		Thread.sleep(5000);
-		// Close the browser
+		Thread.sleep(3000);
+		// Close the current browser window
 		driver.close();
+		//To Close all browser windows
+		driver.quit();
 	}
 
 }
