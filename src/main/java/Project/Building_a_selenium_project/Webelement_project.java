@@ -20,6 +20,15 @@ public class Webelement_project {
 		driver.findElement(By.id("password")).sendKeys("secret_sauce");
 		Thread.sleep(2000);
 		driver.findElement(By.id("login-button")).click();
+
+		//// ******* CSSselector Syntax
+		//// tagName[attributeName="AttributeValue"] here tagName is not mandatory
+		//// <input type=”textbox” id= “ID123” class = “inputText” value=”Login”>
+
+		//driver.findElement(By.cssSelector("input[id='ID123']"));
+		//driver.findElement(By.cssSelector("input[class='inputText']"));
+		//// *** Multiple Attributes
+		//driver.findElement(By.cssSelector(" input*type=’textbox’+*id=’ID123’+*class=’inputText’+*value=’Login’+"));
 		Thread.sleep(2000);
 
 		driver.close();
