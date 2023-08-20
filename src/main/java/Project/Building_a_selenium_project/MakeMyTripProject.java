@@ -23,6 +23,10 @@ public class MakeMyTripProject {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@name='btnLogin']")).click();
 		Thread.sleep(4000);
+		driver.navigate().to("https://mail.google.com");
+		driver.navigate().back();
+		driver.navigate().forward();
+		Thread.sleep(4000);
 		driver.quit();
 	}
 }
