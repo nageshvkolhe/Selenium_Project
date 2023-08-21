@@ -25,8 +25,10 @@ public class MakeMyTripProject {
 		Thread.sleep(4000);
 		driver.navigate().to("https://mail.google.com");
 		driver.navigate().back();
+		Thread.sleep(5000);
 		driver.navigate().forward();
 		Thread.sleep(4000);
+		driver.findElement(By.xpath("//*[@id=\"java_technologies\"]/li[8]/a")).click();
 		driver.quit();
 	}
 }
