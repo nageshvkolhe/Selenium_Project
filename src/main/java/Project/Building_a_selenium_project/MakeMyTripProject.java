@@ -24,6 +24,7 @@ public class MakeMyTripProject {
 		driver.findElement(By.xpath("//*[@name='btnLogin']")).click();
 		Thread.sleep(4000);
 		driver.navigate().to("https://mail.google.com");
+		Thread.sleep(5000);
 		driver.navigate().back();
 		Thread.sleep(5000);
 		driver.navigate().forward();
