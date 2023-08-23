@@ -2,6 +2,7 @@ package Project.Building_a_selenium_project;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class MakeMyTripProject {
@@ -27,9 +28,17 @@ public class MakeMyTripProject {
 		Thread.sleep(5000);
 		driver.navigate().back();
 		Thread.sleep(5000);
-		driver.navigate().forward();
+//		driver.navigate().forward();
 		Thread.sleep(4000);
-		driver.findElement(By.xpath("//*[@id=\"java_technologies\"]/li[8]/a")).click();
+		WebElement unTB = driver.findElement(By.xpath("//*[@id=\"java_technologies\"]/li[8]/a"));
+
+		int un_x = unTB.getLocation().getX();
+		int un_width = unTB.getSize().getWidth();
+		int un_height = unTB.getSize().getHeight();
+		System.out.print("Height : " +un_height);
+		System.out.print("Weidth : " +un_width);
+		System.out.print("X-Corr : " +un_x);
+	
 		driver.quit();
 	}
 }
