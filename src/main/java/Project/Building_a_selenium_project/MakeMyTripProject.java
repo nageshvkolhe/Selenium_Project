@@ -35,10 +35,15 @@ public class MakeMyTripProject {
 		int un_x = unTB.getLocation().getX();
 		int un_width = unTB.getSize().getWidth();
 		int un_height = unTB.getSize().getHeight();
-		System.out.print("Height : " +un_height);
-		System.out.print("Weidth : " +un_width);
-		System.out.print("X-Corr : " +un_x);
-	
+		System.out.println("Height : " +un_height);
+		System.out.println("Weidth : " +un_width);
+		System.out.println("X-Corr : " +un_x);
+		if(unTB.isDisplayed()) {
+			System.out.println("WebElement is Displaced");
+		}else{
+			System.out.println("WebElement is not Displaced");
+		};
+		Thread.sleep(4000);
 		driver.quit();
 	}
 }
