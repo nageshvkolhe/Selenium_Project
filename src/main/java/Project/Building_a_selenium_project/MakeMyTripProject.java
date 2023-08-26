@@ -47,10 +47,15 @@ public class MakeMyTripProject {
 		}else{
 			System.out.println("WebElement is not Displaced");
 		};
-		unTB.getText();
-		unTB.getTagName();
-		unTB.getCssValue(null);
+//		unTB.getText();
+//		unTB.getTagName();
+//		unTB.getCssValue(null);
 		Thread.sleep(4000);
+		driver.get("http://www.google.com");
+		Thread.sleep(2000);
+		//entering text into the focussed element
+		driver.switchTo().activeElement().sendKeys("Appium");
+		Thread.sleep(2000);
 		driver.quit();
 	}
 }
