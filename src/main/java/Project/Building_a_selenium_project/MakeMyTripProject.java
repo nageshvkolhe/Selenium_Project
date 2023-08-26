@@ -12,6 +12,10 @@ public class MakeMyTripProject {
 		WebDriver driver = new FirefoxDriver();
 		driver.get("https://demo.guru99.com/test/selenium-xpath.html");
 		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@name='uid']")).sendKeys("Mahesh");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@name='uid']")).clear();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@name='uid']")).sendKeys("Nagesh");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@name='password']")).sendKeys("Kolhe@123");
@@ -43,7 +47,15 @@ public class MakeMyTripProject {
 		}else{
 			System.out.println("WebElement is not Displaced");
 		};
+//		unTB.getText();
+//		unTB.getTagName();
+//		unTB.getCssValue(null);
 		Thread.sleep(4000);
+		driver.get("http://www.google.com");
+		Thread.sleep(2000);
+		//entering text into the focussed element
+		driver.switchTo().activeElement().sendKeys("Appium");
+		Thread.sleep(2000);
 		driver.quit();
 	}
 }
