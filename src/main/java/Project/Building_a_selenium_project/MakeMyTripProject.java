@@ -1,6 +1,8 @@
 package Project.Building_a_selenium_project;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByName;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -49,13 +51,49 @@ public class MakeMyTripProject {
 		};
 //		unTB.getText();
 //		unTB.getTagName();
-//		unTB.getCssValue(null);
+//		unTB.getCssValue(null);+
 		Thread.sleep(4000);
 		driver.get("http://www.google.com");
 		Thread.sleep(2000);
 		//entering text into the focussed element
 		driver.switchTo().activeElement().sendKeys("Appium");
 		Thread.sleep(2000);
+		driver.get("https://selenium08.blogspot.com/2019/07/check-box-and-radio-buttons.html");
+		Thread.sleep(4000);
+		
+		WebElement red = driver.findElement(By.xpath("//input[@name='color' and @value='red']"));
+		if (red.isDisplayed()) {
+			System.out.println("Red checkbox is Displayed. Return: " + red.isDisplayed());
+		} else {
+			System.out.println("Red checkbox is not Displayed. Return: " + red.isDisplayed());
+			driver.quit();
+		}
+		
+		if (red.isSelected()) {
+			System.out.println("Red checkbox is selected. Return: " + red.isSelected());
+		} else {
+			System.out.println("Red checkbox is not selected. Return: " + red.isSelected());
+
+		}
+
+		WebElement opera = driver.findElement(By.xpath("//input[@name='browser' and @value='Opera']"));
+		// Check radio button opera is selected or not.
+		if (opera.isSelected()) {
+			System.out.println("Radio button opera is selected. Return: " + opera.isSelected());
+		} else {
+			System.out.println("Radio button opera is not selected. Return: " + opera.isSelected());
+		}
+		driver.get("https://www.geeksforgeeks.org/");
+	       
+        WebElement java = driver.findElement(
+            By.xpath("//*[@id=\"hslider\"]/li[6]/a"));
+       
+        // Create a reference
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+       
+        // Call the JavascriptExecutor methods
+        js.executeScript("arguments[0].click();", java);
 		driver.quit();
 	}
+	
 }
