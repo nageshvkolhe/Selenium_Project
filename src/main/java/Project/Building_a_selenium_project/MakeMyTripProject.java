@@ -41,26 +41,27 @@ public class MakeMyTripProject {
 		int un_x = unTB.getLocation().getX();
 		int un_width = unTB.getSize().getWidth();
 		int un_height = unTB.getSize().getHeight();
-		System.out.println("Height : " +un_height);
-		System.out.println("Weidth : " +un_width);
-		System.out.println("X-Corr : " +un_x);
-		if(unTB.isDisplayed()) {
+		System.out.println("Height : " + un_height);
+		System.out.println("Weidth : " + un_width);
+		System.out.println("X-Corr : " + un_x);
+		if (unTB.isDisplayed()) {
 			System.out.println("WebElement is Displaced");
-		}else{
+		} else {
 			System.out.println("WebElement is not Displaced");
-		};
+		}
+		;
 //		unTB.getText();
 //		unTB.getTagName();
 //		unTB.getCssValue(null);+
 		Thread.sleep(4000);
 		driver.get("http://www.google.com");
 		Thread.sleep(2000);
-		//entering text into the focussed element
+		// entering text into the focussed element
 		driver.switchTo().activeElement().sendKeys("Appium");
 		Thread.sleep(2000);
 		driver.get("https://selenium08.blogspot.com/2019/07/check-box-and-radio-buttons.html");
 		Thread.sleep(4000);
-		
+
 		WebElement red = driver.findElement(By.xpath("//input[@name='color' and @value='red']"));
 		if (red.isDisplayed()) {
 			System.out.println("Red checkbox is Displayed. Return: " + red.isDisplayed());
@@ -68,7 +69,7 @@ public class MakeMyTripProject {
 			System.out.println("Red checkbox is not Displayed. Return: " + red.isDisplayed());
 			driver.quit();
 		}
-		
+
 		if (red.isSelected()) {
 			System.out.println("Red checkbox is selected. Return: " + red.isSelected());
 		} else {
@@ -84,16 +85,25 @@ public class MakeMyTripProject {
 			System.out.println("Radio button opera is not selected. Return: " + opera.isSelected());
 		}
 		driver.get("https://www.geeksforgeeks.org/");
-	       
-        WebElement java = driver.findElement(
-            By.xpath("//*[@id=\"hslider\"]/li[6]/a"));
-       
-        // Create a reference
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-       
-        // Call the JavascriptExecutor methods
-        js.executeScript("arguments[0].click();", java);
-		driver.quit();
-	}
+
+		WebElement java = driver.findElement(By.xpath("//*[@id=\"hslider\"]/li[6]/a"));
+
+		// Create a reference
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		// Call the JavascriptExecutor methods
+		js.executeScript("arguments[0].click();", java);
+
+//***********iFrame
+		int size = driver.findElements(By.tagName("iframe")).size();
+
+		for (int i = 0; i <= size; i++) {
+			driver.switchTo().frame(i);
+			int total = driver.findElements(By.xpath("html/body/a/img")).size();
+			System.out.println(total);
+			driver.switchTo().defaultContent();
+			driver.quit();
+		}
 	
+	}
 }
