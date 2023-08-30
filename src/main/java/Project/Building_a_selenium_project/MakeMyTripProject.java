@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class MakeMyTripProject {
 	public static void main(String args[]) throws InterruptedException {
@@ -84,15 +85,15 @@ public class MakeMyTripProject {
 		} else {
 			System.out.println("Radio button opera is not selected. Return: " + opera.isSelected());
 		}
-		driver.get("https://www.geeksforgeeks.org/");
-
-		WebElement java = driver.findElement(By.xpath("//*[@id=\"hslider\"]/li[6]/a"));
-
-		// Create a reference
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-
-		// Call the JavascriptExecutor methods
-		js.executeScript("arguments[0].click();", java);
+//		driver.get("https://www.geeksforgeeks.org/");
+//
+//		WebElement java = driver.findElement(By.xpath("//*[@id=\"hslider\"]/li[6]/a"));
+//
+//		// Create a reference
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//		// Call the JavascriptExecutor methods
+//		js.executeScript("arguments[0].click();", java);
 
 //***********iFrame
 		int size = driver.findElements(By.tagName("iframe")).size();
@@ -102,8 +103,28 @@ public class MakeMyTripProject {
 			int total = driver.findElements(By.xpath("html/body/a/img")).size();
 			System.out.println(total);
 			driver.switchTo().defaultContent();
-			driver.quit();
+
 		}
-	
+		driver.get("https://www.browserstack.com/");
+
+		Actions a = new Actions(driver);
+
+		// Double click on element
+
+		WebElement trialaction = driver.findElement(By.xpath("//a[@id='free-trial-link-anchor']"));
+		a.doubleClick(trialaction).perform();
+		Thread.sleep(4000);
+		
+		driver.get("https://demo.guru99.com/test/selenium-xpath.html");
+
+		Thread.sleep(4000);
+		WebElement menu = driver.findElement(By.xpath("//*[@id=\"java_technologies\"]/li[8]/a"));
+
+		//mouse hover on "java_technologies" menu
+		Actions actions = new Actions(driver);
+		actions.moveToElement(menu).perform();
+	menu.click();
+		Thread.sleep(4000);
+		driver.quit();
 	}
 }
