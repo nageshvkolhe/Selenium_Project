@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class MakeMyTripProject {
 	public static void main(String args[]) throws InterruptedException {
@@ -114,16 +115,32 @@ public class MakeMyTripProject {
 		WebElement trialaction = driver.findElement(By.xpath("//a[@id='free-trial-link-anchor']"));
 		a.doubleClick(trialaction).perform();
 		Thread.sleep(4000);
-		
+
 		driver.get("https://demo.guru99.com/test/selenium-xpath.html");
 
 		Thread.sleep(4000);
 		WebElement menu = driver.findElement(By.xpath("//*[@id=\"java_technologies\"]/li[8]/a"));
 
-		//mouse hover on "java_technologies" menu
+		// mouse hover on "java_technologies" menu
 		Actions actions = new Actions(driver);
 		actions.moveToElement(menu).perform();
-	menu.click();
+		menu.click();
+		Thread.sleep(4000);
+		// ********** Select Class ***********
+		driver.get("https://www.browserstack.com/");
+		driver.manage().window().maximize();
+		WebElement developers_dropdown = driver.findElement(By.id("developers-menu-toggle"));
+		Select objSelect = new Select(developers_dropdown);
+		objSelect.selectByIndex(2);
+		Thread.sleep(3000);
+		driver.get("https://www.browserstack.com/");
+		WebElement solutions_dropdown = driver.findElement(By.id("solutions-menu-dropdown"));
+		Select solutions = new Select(solutions_dropdown);
+		solutions.selectByValue("4000");
+		Thread.sleep(3000);
+		WebElement solutions_d = driver.findElement(By.id("solutions-menu-dropdown"));
+		Select s1 = new Select(solutions_d);
+		s1.selectByVisibleText("Geolocation Testing");
 		Thread.sleep(4000);
 		driver.quit();
 	}
