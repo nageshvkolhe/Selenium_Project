@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 public class TestNG_Class {
 		public static void main(String args[]) {
 			beforeSuite();
@@ -54,7 +55,11 @@ public class TestNG_Class {
 	@BeforeTest
 	public static void beforeTest() {
 		 Reporter.log("beforeTest", true);		
-	}	
+	}
+	@Test(groups = {"module1","module2"})
+	public static void test() {
+		Reporter.log("test", true);
+	}
 		
 	@AfterTest
 	public static void afterTest() {
