@@ -56,11 +56,16 @@ public class TestNG_Class {
 	public static void beforeTest() {
 		 Reporter.log("beforeTest", true);		
 	}
-	@Test(groups = {"module1","module2"})
+	@Test(priority = 0,groups = {"module1","module2"})
 	public static void test() {
 		Reporter.log("test", true);
 	}
 		
+	@Test(priority = 1,invocationCount = 4)
+	public static void testP() {
+		Reporter.log("test", true);
+	}
+	
 	@AfterTest
 	public static void afterTest() {
 		 Reporter.log("afterTest", true);		
