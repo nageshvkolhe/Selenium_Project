@@ -66,6 +66,11 @@ public class TestNG_Class {
 		Reporter.log("test", true);
 	}
 	
+	@Test(enabled = false,priority = 2)
+	public static void disabledTest() {
+		Reporter.log("test", true);
+	}
+	
 	@AfterTest
 	public static void afterTest() {
 		 Reporter.log("afterTest", true);		
