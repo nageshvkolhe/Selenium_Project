@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.reporters.jq.TestPanel;
 public class TestNG_Class {
 		public static void main(String args[]) {
 			beforeSuite();
@@ -66,7 +67,7 @@ public class TestNG_Class {
 		Reporter.log("test", true);
 	}
 	
-	@Test(enabled = false,priority = 2)
+	@Test(enabled = false,priority = 2,dependsOnMethods = "testP")
 	public static void disabledTest() {
 		Reporter.log("test", true);
 	}
