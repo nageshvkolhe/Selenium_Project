@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.reporters.jq.TestPanel;
 public class TestNG_Class {
 		public static void main(String args[]) {
 			beforeSuite();
@@ -56,11 +57,21 @@ public class TestNG_Class {
 	public static void beforeTest() {
 		 Reporter.log("beforeTest", true);		
 	}
-	@Test(groups = {"module1","module2"})
+	@Test(priority = 0,groups = {"module1","module2"})
 	public static void test() {
 		Reporter.log("test", true);
 	}
 		
+	@Test(priority = 1,invocationCount = 4)
+	public static void testP() {
+		Reporter.log("test", true);
+	}
+	
+	@Test(enabled = false,priority = 2,dependsOnMethods = "testP")
+	public static void disabledTest() {
+		Reporter.log("test", true);
+	}
+	
 	@AfterTest
 	public static void afterTest() {
 		 Reporter.log("afterTest", true);		

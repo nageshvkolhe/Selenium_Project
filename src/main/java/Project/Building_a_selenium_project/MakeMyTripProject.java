@@ -142,6 +142,7 @@ public class MakeMyTripProject {
 		Select s1 = new Select(solutions_d);
 		s1.selectByVisibleText("Geolocation Testing");
 		Thread.sleep(4000);
+//		driver.close();
 		driver.quit();
 	}
 }
