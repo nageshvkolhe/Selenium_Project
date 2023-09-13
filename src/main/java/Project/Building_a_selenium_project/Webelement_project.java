@@ -41,6 +41,7 @@ public class Webelement_project {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Babita123");
 		Thread.sleep(2000);	
+		r.mouseMove(0, 500);
 		driver.findElement(By.xpath("//body/div[@id='root']/main[1]/main[1]/div[1]/form[1]/button[1]")).click();
 		Thread.sleep(2000);
 		
